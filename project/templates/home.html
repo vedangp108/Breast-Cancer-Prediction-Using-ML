@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold mb-4">AI-Powered Medical Predictions</h1>
+                <p class="lead mb-4">Advanced machine learning algorithms to assist in medical diagnosis</p>
+                <a href="{% url 'breast' %}" class="btn btn-light btn-lg">Try Cancer Prediction</a>
+            </div>
+            <div class="col-md-6">
+                <img src="https://img.freepik.com/free-vector/medical-technology-science-background-vector-health-care-design_53876-140880.jpg" 
+                     alt="Medical AI" class="img-fluid rounded-3">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-dna fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Cancer Prediction</h5>
+                        <p class="card-text">Advanced breast cancer prediction using machine learning algorithms.</p>
+                        <a href="{% url 'breast' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-microscope fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Image Analysis</h5>
+                        <p class="card-text">Medical image analysis for enhanced diagnosis (Demo).</p>
+                        <a href="#" class="btn btn-primary">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-heartbeat fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Health Monitoring</h5>
+                        <p class="card-text">Continuous health monitoring and analysis (Demo).</p>
+                        <a href="#" class="btn btn-primary">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Breast Cancer Prediction</h2>
+                    
+                    {% if result %}
+                    <div class="alert {% if result == 'have' %}alert-warning{% else %}alert-success{% endif %} mb-4">
+                        <h4 class="text-center mb-0">
+                            Based on the analysis, you {{ result }} breast cancer.
+                            {% if result == 'have' %}
+                            <p class="small mt-2 mb-0">Please consult with a healthcare professional for proper diagnosis.</p>
+                            {% endif %}
+                        </h4>
+                    </div>
+                    {% endif %}
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <form method="POST" action="{% url 'breast' %}">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                <div class="mb-3">
+                                    <label class="form-label">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                                {% endfor %}
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Analyze Data
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Image Analysis (Demo)</h5>
+                                    <p class="card-text">Upload a medical image for analysis.</p>
+                                    <div class="mb-3">
+                                        <input type="file" class="form-control" accept="image/*">
+                                    </div>
+                                    <button class="btn btn-secondary w-100" disabled>
+                                        Analyze Image (Coming Soon)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <h5><i class="fas fa-info-circle"></i> Important Note</h5>
+                        <p class="mb-0">This tool is for educational purposes only. Always consult with healthcare professionals for medical advice and diagnosis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
